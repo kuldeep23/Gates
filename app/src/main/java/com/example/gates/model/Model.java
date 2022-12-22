@@ -1,4 +1,4 @@
-package com.example.gates;
+package com.example.gates.model;
 
 public class Model {
     String name, email, password, status;

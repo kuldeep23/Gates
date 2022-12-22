@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gates.api.GetAPI;
+import com.example.gates.model.GetModel;
+
 import java.util.List;
 
 import retrofit2.Call;

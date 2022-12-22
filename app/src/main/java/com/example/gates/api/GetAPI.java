@@ -1,5 +1,7 @@
-package com.example.gates;
+package com.example.gates.api;
 
+
+import com.example.gates.model.GetModel;
 
 import java.util.List;
 import retrofit2.Call;

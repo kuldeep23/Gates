@@ -1,4 +1,4 @@
-package com.example.gates;
+package com.example.gates.model;
 
 public class GetModel {
     int userId, id;
