@@ -1,45 +1,46 @@
 package com.example.gates.model;
 
 public class GetModel {
-    int userId, id;
-    String title, body;
+    String name, email, password, status;
 
-    public GetModel(int userId, int id, String title, String body) {
-        this.userId = userId;
-        this.id = id;
-        this.title = title;
-        this.body = body;
+    public GetModel(String name, String email, String password, String status) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.status = status;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getName() {
+        return name;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTitle() {
-        return title;
+    public String getPassword() {
+        return password;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getBody() {
-        return body;
+    public String getStatus() {
+        return status;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
+
+

@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface GetAPI
 {
-    @GET("posts")
+    @GET("details.php")
     Call<List<GetModel>> getmodels();
 }

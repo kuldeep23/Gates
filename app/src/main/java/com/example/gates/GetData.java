@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetData extends AppCompatActivity {
 
     TextView tv;
-    String url = "https://jsonplaceholder.typicode.com/";
+    String url = "https://gatesadmin.000webhostapp.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,10 @@ public class GetData extends AppCompatActivity {
               // Toast.makeText(GetData.this, response.toString(), Toast.LENGTH_SHORT).show();
                 List<GetModel> data =response.body();
                   for(int i=0; i<data.size(); i++)
-                      tv.append( "ID : "+ data.get(i).getId()+"\n Title :" + data.get(i).getTitle()+"\n\n\n");
+                      tv.append("Name: "+ data.get(i).getName()+
+                              "\nEmail :" + data.get(i).getEmail()+
+                              "\nPassword :" + data.get(i).getPassword()+
+                              "\nStatus :" + data.get(i).getStatus()+"\n\n");
 
             }
 
