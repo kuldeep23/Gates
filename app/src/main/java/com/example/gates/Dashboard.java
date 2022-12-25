@@ -39,8 +39,8 @@ public class Dashboard extends AppCompatActivity {
 
     public void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("username"))
-            tv.setText(sp.getString("username",""));
+        if(sp.contains("email"))
+            tv.setText(sp.getString("email",""));
         else
             startActivity(new Intent(getApplicationContext(),Login.class));
     }

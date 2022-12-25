@@ -21,6 +21,7 @@ import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
+
     EditText t1,t2;
     Button loginbtn;
     TextView tv;
@@ -60,22 +61,26 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<responsemodel> call, Response<responsemodel> response) {
                 responsemodel obj = response.body();
                 String output = obj.getMessage();
-                if(output.equals("failed")){
-                t1.setText("");
-                t2.setText("");
-                tv.setTextColor(Color.RED);
-                tv.setText("Invalid username or password");
+                if(output.equals("failed"))
+                {
+                    t1.setText("");
+                    t2.setText("");
+                    tv.setTextColor(Color.RED);
+                    tv.setText("Invalid username or password");
                 }
-                if(output.equals("exist")){
+                if(output.equals("exist"))
+                {
                     SharedPreferences sp= getSharedPreferences("credentials", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("email",t1.getText().toString());
                     editor.putString("password",t2.getText().toString());
                     editor.commit();
                     editor.apply();
+
+                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                    finish();
                 }
-                startActivity(new Intent(getApplicationContext(),Dashboard.class));
-                finish();
+
             }
 
             @Override
@@ -90,8 +95,9 @@ public class Login extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("email"))
         startActivity(new Intent(getApplicationContext(),Dashboard.class));
-        else
+        else {
             tv.setText("Please login....");
-        tv.setTextColor(Color.RED);
+            tv.setTextColor(Color.RED);
+        }
     }
 }

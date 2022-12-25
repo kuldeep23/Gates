@@ -6,7 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Controller {
-    public static final String url = "https://192.168.1.5/control-panel-services/";
+    public static final String url = "https://gatesadmin.000webhostapp.com/";
 
     private static Controller clientobject;
     private static Retrofit retrofit;
