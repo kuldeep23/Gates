@@ -40,7 +40,7 @@ public class Home extends AppCompatActivity {
     void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("email"))
-            startActivity(new Intent(getApplicationContext(),Dashboard.class));
+            startActivity(new Intent(getApplicationContext(),DashBord.class));
         else {
             Toast.makeText(this, "Please Login....", Toast.LENGTH_SHORT).show();
         }

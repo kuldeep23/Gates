@@ -3,6 +3,8 @@ package com.example.gates;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -22,9 +24,12 @@ public class DashBord extends AppCompatActivity {
         cardSetting = findViewById(R.id.card_setting);
         cardLogout = findViewById(R.id.card_logout);
 
+        checkUserExistance();
+
         cardHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),GetData.class));
                 showToast("Home Click");
             }
         });
@@ -32,6 +37,7 @@ public class DashBord extends AppCompatActivity {
         cardChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 showToast("Card Chat Click");
             }
         });
@@ -61,6 +67,12 @@ public class DashBord extends AppCompatActivity {
         cardLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                sp.edit().remove("email").commit();
+                sp.edit().remove("password").commit();
+                sp.edit().apply();
+                startActivity(new Intent(getApplicationContext(),Login.class));
+                finish();
                 showToast("Card Logout Click");
             }
         });
@@ -70,5 +82,14 @@ public class DashBord extends AppCompatActivity {
 
     private void showToast(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void checkUserExistance(){
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("email"))
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+            //tv.setText(sp.getString("email",""));
+        else
+            startActivity(new Intent(getApplicationContext(),Login.class));
     }
 }
