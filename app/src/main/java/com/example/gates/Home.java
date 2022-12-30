@@ -39,8 +39,10 @@ public class Home extends AppCompatActivity {
 
     void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("email"))
-            startActivity(new Intent(getApplicationContext(),DashBord.class));
+        if(sp.contains("email")) {
+            startActivity(new Intent(getApplicationContext(), DashBord.class));
+            finish();
+        }
         else {
             Toast.makeText(this, "Please Login....", Toast.LENGTH_SHORT).show();
         }

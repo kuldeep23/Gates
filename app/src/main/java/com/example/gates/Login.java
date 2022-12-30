@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.idtext);
         loginbtn = (Button) findViewById(R.id.idBtnLogin);
 
-//        checkUserExistance();
+      //  checkUserExistance();
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +93,10 @@ public class Login extends AppCompatActivity {
 
    /* void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("email"))
-        startActivity(new Intent(getApplicationContext(),Dashboard.class));
+        if(sp.contains("email")){
+        startActivity(new Intent(getApplicationContext(),DashBord.class));
+        finish();
+        }
         else {
             tv.setText("Please login....");
             tv.setTextColor(Color.RED);
