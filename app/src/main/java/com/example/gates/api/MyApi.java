@@ -10,5 +10,9 @@ import retrofit2.http.POST;
 public interface MyApi {
     @FormUrlEncoded
     @POST("signup.php")
-    Call<Model> adddata(@Field("name") String name, @Field("email") String email, @Field("password") String password, @Field("status") String status);
+    Call<Model> adddata(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("status") String status);
 }

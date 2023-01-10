@@ -47,6 +47,7 @@ public class DashBord extends AppCompatActivity {
         cardProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),GetImage.class));
                 showToast("Card Profile Click");
             }
         });

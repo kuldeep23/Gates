@@ -1,5 +1,6 @@
 package com.example.gates;
 
+import com.example.gates.api.MyApi;
 import com.example.gates.api.apiset;
 
 import retrofit2.Retrofit;

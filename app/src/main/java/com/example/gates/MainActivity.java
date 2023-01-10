@@ -52,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
         MyApi api =retrofit.create(MyApi.class);
 
-        Call<Model> call = api.adddata(name.getText().toString(), email.getText().toString(),pwd.getText().toString(), status.getText().toString());
+        Call<Model> call = api.adddata(name.getText().toString(),
+                                       email.getText().toString(),
+                                        pwd.getText().toString(),
+                                        status.getText().toString());
 
         call.enqueue(new Callback<Model>() {
             @Override
