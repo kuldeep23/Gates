@@ -3,10 +3,12 @@ package com.example.gates;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -17,6 +19,7 @@ import java.util.List;
 public class MyAdaptar extends RecyclerView.Adapter<MyAdaptar.myViewHolder>
 {
     List<responsemodel1> data;
+
 
     public MyAdaptar(List<responsemodel1> data) {
         this.data = data;
@@ -34,6 +37,10 @@ public class MyAdaptar extends RecyclerView.Adapter<MyAdaptar.myViewHolder>
         holder.t1.setText(data.get(position).getName());
         holder.t2.setText(data.get(position).getDesig());
         Glide.with(holder.t1.getContext()).load("https://gatesadmin.000webhostapp.com/images/"+data.get(position).getImage()).into(holder.img);
+
+        //Animation
+        holder.cardView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(),R.anim.anim_four));
+
     }
 
     @Override
@@ -43,15 +50,17 @@ public class MyAdaptar extends RecyclerView.Adapter<MyAdaptar.myViewHolder>
 
     class myViewHolder extends RecyclerView.ViewHolder
     {
-        ImageView img;
-        TextView t1, t2;
 
+        private  ImageView img;
+        private TextView t1, t2;
+        private CardView cardView;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.img);
             t1 = itemView.findViewById(R.id.t1);
             t2 = itemView.findViewById(R.id.t2);
+            cardView = itemView.findViewById(R.id.eachCardView);
         }
     }
 }

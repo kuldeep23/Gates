@@ -4,8 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="5dp"
-    android:elevation="4dp"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/eachCardView"
+    android:elevation="5dp"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -14,32 +15,156 @@
         android:padding="16dp">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@color/purple_500"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@color/teal_700"
             android:id="@+id/img"/>
 
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This is Header Text"
-            android:textSize="25dp"
-            android:textStyle="bold"
+            android:text="Zomato"
+            android:textSize="20dp"
             android:layout_toRightOf="@+id/img"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="09dp"
             android:textColor="#000"
             android:id="@+id/t1"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This is Description Text"
-            android:textSize="25dp"
+            android:text="Sunil"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/t1"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:id="@+id/t3"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELIVERY"
+            android:padding="5dp"
+            android:textSize="11dp"
+            android:background="@color/teal_700"
+            android:textColor="#FFFF"
+            android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/img"
-            android:layout_below="@+id/t1"
+            android:layout_below="@+id/t3"
+            android:id="@+id/t4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENTER"
+            android:padding="5dp"
+            android:textSize="11dp"
+            android:background="#FF5C5C"
+            android:textColor="#FFFF"
+            android:layout_toRightOf="@+id/t4"
+            android:layout_below="@+id/t3"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/t13"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Approved by : "
+            android:textSize="12dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/img"
+            android:layout_below="@+id/t4"
+            android:id="@+id/t5"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pooja Goyal "
+            android:textSize="12dp"
+            android:layout_toRightOf="@+id/t5"
+            android:layout_below="@+id/t4"
+            android:id="@+id/t6"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Timing : "
+            android:textSize="12dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/img"
+            android:layout_below="@+id/t5"
+            android:id="@+id/t7"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:04 AM, 10-JAN-2022"
+            android:textSize="12dp"
+            android:layout_toRightOf="@+id/t5"
+            android:layout_below="@+id/t5"
+            android:id="@+id/t8"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit Timing : "
+            android:textSize="12dp"
+            android:layout_toRightOf="@+id/img"
+            android:layout_below="@+id/t7"
             android:layout_marginLeft="10dp"
             android:id="@+id/t2"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12:09 PM, 10-JAN-2022"
+            android:textSize="12dp"
+            android:layout_toRightOf="@+id/t2"
+            android:layout_below="@+id/t7"
+            android:id="@+id/t12"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/t2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wrong Entry"
+                    android:background="@color/teal_700"
+                    android:textColor="#FFF"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Call"
+                    android:background="@color/teal_700"
+                    android:textColor="#FFF"/>
+            </RelativeLayout>
+        </LinearLayout>
+
     </RelativeLayout>
+
+
 </androidx.cardview.widget.CardView>
