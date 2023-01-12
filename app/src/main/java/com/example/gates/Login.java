@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
                     editor.commit();
                     editor.apply();
 
-                    startActivity(new Intent(getApplicationContext(),DashBord.class));
+                    startActivity(new Intent(getApplicationContext(),DashBoard.class));
                     finish();
                 }
 

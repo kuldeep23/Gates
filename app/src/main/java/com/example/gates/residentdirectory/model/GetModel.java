@@ -1,4 +1,4 @@
-package com.example.gates.model;
+package com.example.gates.residentdirectory.model;
 
 public class GetModel {
     String name, email, password, status;

@@ -24,7 +24,7 @@ public class Controller {
                 clientobject=new Controller();
             return clientobject;
         }
-        apiset getapi(){
+        public apiset getapi(){
            return retrofit.create(apiset.class);
         }
 }

@@ -11,7 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class DashBord extends AppCompatActivity {
+import com.example.gates.myvisitor.MyVisitorMain;
+import com.example.gates.residentdirectory.ResidentDirectory;
+
+public class DashBoard extends AppCompatActivity {
 
     CardView cardHome, cardChat, cardProfile, cardWidget, cardSetting, cardLogout;
     @Override
@@ -31,7 +34,7 @@ public class DashBord extends AppCompatActivity {
         cardHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),GetData.class));
+                startActivity(new Intent(getApplicationContext(), ResidentDirectory.class));
                 showToast("Home Click");
             }
         });
@@ -54,7 +57,9 @@ public class DashBord extends AppCompatActivity {
 
         cardWidget.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MyVisitorMain.class));
                 showToast("Card Widget Click");
             }
         });

@@ -1,8 +1,8 @@
 package com.example.gates.api;
 
-import com.example.gates.model.GetModel;
 import com.example.gates.model.responsemodel;
 import com.example.gates.model.responsemodel1;
+import com.example.gates.residentdirectory.model.GetModel;
 
 import java.util.List;
 

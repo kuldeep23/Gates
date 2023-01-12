@@ -40,7 +40,7 @@ public class Home extends AppCompatActivity {
     void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("email")) {
-            startActivity(new Intent(getApplicationContext(), DashBord.class));
+            startActivity(new Intent(getApplicationContext(), DashBoard.class));
             finish();
         }
         else {

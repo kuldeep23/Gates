@@ -1,25 +1,21 @@
-package com.example.gates;
-
-
+package com.example.gates.residentdirectory;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.gates.api.GetAPI;
-import com.example.gates.model.GetModel;
+import com.example.gates.R;
+import com.example.gates.api.apiset;
+import com.example.gates.residentdirectory.model.GetModel;
 
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class GetData extends AppCompatActivity {
+public class ResidentDirectory extends AppCompatActivity {
 
     TextView tv;
     String url = "https://gatesadmin.000webhostapp.com/";
@@ -37,7 +33,7 @@ public class GetData extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        GetAPI api  = retrofit.create(GetAPI.class);
+        apiset api  = retrofit.create(apiset.class);
         Call<List<GetModel>> call = api.getmodels();
 
         call.enqueue(new Callback<List<GetModel>>() {
@@ -55,7 +51,7 @@ public class GetData extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<GetModel>> call, Throwable t) {
-                Toast.makeText(GetData.this, t.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ResidentDirectory.this, t.toString(), Toast.LENGTH_SHORT).show();
 
             }
         });

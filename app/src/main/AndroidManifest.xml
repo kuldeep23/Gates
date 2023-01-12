@@ -16,6 +16,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".myvisitor.MyVisitorMain"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".GetImage"
             android:exported="false">
             <meta-data
@@ -23,7 +30,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".DashBord"
+            android:name=".DashBoard"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -50,13 +57,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Dashboard"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Login"
             android:exported="true">
             <meta-data
@@ -71,7 +71,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".GetData"
+            android:name=".residentdirectory.ResidentDirectory"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
