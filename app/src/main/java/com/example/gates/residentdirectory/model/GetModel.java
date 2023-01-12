@@ -1,9 +1,9 @@
-package com.example.gates.model;
+package com.example.gates.residentdirectory.model;
 
-public class Model {
+public class GetModel {
     String name, email, password, status;
 
-    public Model(String name, String email, String password, String status) {
+    public GetModel(String name, String email, String password, String status) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -42,3 +42,5 @@ public class Model {
         this.status = status;
     }
 }
+
+

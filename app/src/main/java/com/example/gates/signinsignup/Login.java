@@ -1,4 +1,4 @@
-package com.example.gates;
+package com.example.gates.signinsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.gates.model.responsemodel;
-
-import java.util.Collection;
+import com.example.gates.controller.Controller;
+import com.example.gates.DashBoard;
+import com.example.gates.R;
+import com.example.gates.signinsignup.model.LoginModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,15 +52,15 @@ public class Login extends AppCompatActivity {
 
         String email = t1.getText().toString();
         String password = t2.getText().toString();
-        Call<responsemodel> call = Controller
+        Call<LoginModel> call = Controller
                                     .getInstance()
                                     .getapi()
                                     .verifyuser(email,password);
 
-        call.enqueue(new Callback<responsemodel>() {
+        call.enqueue(new Callback<LoginModel>() {
             @Override
-            public void onResponse(Call<responsemodel> call, Response<responsemodel> response) {
-                responsemodel obj = response.body();
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+                LoginModel obj = response.body();
                 String output = obj.getMessage();
                 if(output.equals("failed"))
                 {
@@ -77,14 +78,14 @@ public class Login extends AppCompatActivity {
                     editor.commit();
                     editor.apply();
 
-                    startActivity(new Intent(getApplicationContext(),DashBord.class));
+                    startActivity(new Intent(getApplicationContext(), DashBoard.class));
                     finish();
                 }
 
             }
 
             @Override
-            public void onFailure(Call<responsemodel> call, Throwable t) {
+            public void onFailure(Call<LoginModel> call, Throwable t) {
                 tv.setText(t.toString());
                 tv.setTextColor(Color.RED);
             }

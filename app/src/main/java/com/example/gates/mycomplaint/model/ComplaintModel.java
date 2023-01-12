@@ -1,9 +1,9 @@
-package com.example.gates.model;
+package com.example.gates.mycomplaint.model;
 
-public class GetModel {
+public class ComplaintModel {
     String name, email, password, status;
 
-    public GetModel(String name, String email, String password, String status) {
+    public ComplaintModel(String name, String email, String password, String status) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -42,5 +42,3 @@ public class GetModel {
         this.status = status;
     }
 }
-
-

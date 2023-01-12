@@ -1,12 +1,12 @@
-package com.example.gates.model;
+package com.example.gates.myvisitor.model;
 
-public class responsemodel1 {
+public class AllVisitorModel {
     String id, name, desig, image;
 
-    public responsemodel1() {
+    public AllVisitorModel() {
     }
 
-    public responsemodel1(String id, String name, String desig, String image) {
+    public AllVisitorModel(String id, String name, String desig, String image) {
         this.id = id;
         this.name = name;
         this.desig = desig;

@@ -11,7 +11,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class DashBord extends AppCompatActivity {
+import com.example.gates.mycomplaint.MyComplaintMain;
+import com.example.gates.myvisitor.GetImage;
+import com.example.gates.myvisitor.MyVisitorMain;
+import com.example.gates.residentdirectory.ResidentDirectory;
+import com.example.gates.signinsignup.Login;
+
+public class DashBoard extends AppCompatActivity {
 
     CardView cardHome, cardChat, cardProfile, cardWidget, cardSetting, cardLogout;
     @Override
@@ -31,7 +37,7 @@ public class DashBord extends AppCompatActivity {
         cardHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),GetData.class));
+                startActivity(new Intent(getApplicationContext(), ResidentDirectory.class));
                 showToast("Home Click");
             }
         });
@@ -39,7 +45,7 @@ public class DashBord extends AppCompatActivity {
         cardChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MyComplaintMain.class));
                 showToast("Card Chat Click");
             }
         });
@@ -47,14 +53,16 @@ public class DashBord extends AppCompatActivity {
         cardProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),GetImage.class));
+                startActivity(new Intent(getApplicationContext(), GetImage.class));
                 showToast("Card Profile Click");
             }
         });
 
         cardWidget.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MyVisitorMain.class));
                 showToast("Card Widget Click");
             }
         });
@@ -74,7 +82,7 @@ public class DashBord extends AppCompatActivity {
                 sp.edit().remove("email").commit();
                 sp.edit().remove("password").commit();
                 sp.edit().apply();
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
                 showToast("Card Logout Click");
             }

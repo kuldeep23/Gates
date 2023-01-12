@@ -1,8 +1,9 @@
 package com.example.gates.api;
 
-import com.example.gates.model.GetModel;
-import com.example.gates.model.responsemodel;
-import com.example.gates.model.responsemodel1;
+import com.example.gates.mycomplaint.model.ComplaintModel;
+import com.example.gates.signinsignup.model.LoginModel;
+import com.example.gates.myvisitor.model.AllVisitorModel;
+import com.example.gates.residentdirectory.model.GetModel;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface apiset {
 
     @FormUrlEncoded
     @POST("login.php")
-    Call<responsemodel> verifyuser(
+    Call<LoginModel> verifyuser(
             @Field("email") String email,
             @Field("password") String password
     );
@@ -25,5 +26,13 @@ public interface apiset {
     Call<List<GetModel>> getmodels();
 
     @GET("get_image.php")
-    Call<List<responsemodel1>> getdata();
+    Call<List<AllVisitorModel>> getdata();
+
+    @FormUrlEncoded
+    @POST("signup.php")
+    Call<ComplaintModel> adddata(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("status") String status);
 }

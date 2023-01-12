@@ -1,13 +1,13 @@
-package com.example.gates.model;
+package com.example.gates.signinsignup.model;
 
-public class responsemodel {
+public class LoginModel {
     String message;
 
-    public responsemodel(String message) {
+    public LoginModel(String message) {
         this.message = message;
     }
 
-    public responsemodel() {
+    public LoginModel() {
     }
 
     public String getMessage() {

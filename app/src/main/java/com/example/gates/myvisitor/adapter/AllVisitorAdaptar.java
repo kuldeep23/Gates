@@ -1,4 +1,4 @@
-package com.example.gates;
+package com.example.gates.myvisitor.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +12,17 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.gates.model.responsemodel1;
+import com.example.gates.R;
+import com.example.gates.myvisitor.model.AllVisitorModel;
 
 import java.util.List;
 
-public class MyAdaptar extends RecyclerView.Adapter<MyAdaptar.myViewHolder>
+public class AllVisitorAdaptar extends RecyclerView.Adapter<AllVisitorAdaptar.myViewHolder>
 {
-    List<responsemodel1> data;
+    List<AllVisitorModel> data;
 
 
-    public MyAdaptar(List<responsemodel1> data) {
+    public AllVisitorAdaptar(List<AllVisitorModel> data) {
         this.data = data;
     }
 

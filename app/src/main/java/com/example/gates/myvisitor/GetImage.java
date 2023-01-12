@@ -1,4 +1,4 @@
-package com.example.gates;
+package com.example.gates.myvisitor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.gates.model.responsemodel1;
+import com.example.gates.controller.Controller;
+import com.example.gates.R;
+import com.example.gates.myvisitor.model.AllVisitorModel;
+import com.example.gates.myvisitor.adapter.AllVisitorAdaptar;
 
 import java.util.List;
 
@@ -31,21 +34,21 @@ public class GetImage extends AppCompatActivity {
     }
 
     public void processdata(){
-        Call<List<responsemodel1>> call = Controller
+        Call<List<AllVisitorModel>> call = Controller
                                         .getInstance()
                                         .getapi()
                                         .getdata();
 
-        call.enqueue(new Callback<List<responsemodel1>>() {
+        call.enqueue(new Callback<List<AllVisitorModel>>() {
             @Override
-            public void onResponse(Call<List<responsemodel1>> call, Response<List<responsemodel1>> response) {
-                List<responsemodel1> data = response.body();
-                MyAdaptar myAdaptar = new MyAdaptar(data);
+            public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>> response) {
+                List<AllVisitorModel> data = response.body();
+                AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
                 recview.setAdapter(myAdaptar);
             }
 
             @Override
-            public void onFailure(Call<List<responsemodel1>> call, Throwable t) {
+            public void onFailure(Call<List<AllVisitorModel>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
             }
         });

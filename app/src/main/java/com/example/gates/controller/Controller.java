@@ -1,6 +1,5 @@
-package com.example.gates;
+package com.example.gates.controller;
 
-import com.example.gates.api.MyApi;
 import com.example.gates.api.apiset;
 
 import retrofit2.Retrofit;
@@ -24,7 +23,7 @@ public class Controller {
                 clientobject=new Controller();
             return clientobject;
         }
-        apiset getapi(){
+        public apiset getapi(){
            return retrofit.create(apiset.class);
         }
 }

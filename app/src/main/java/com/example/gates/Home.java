@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.gates.signinsignup.Login;
+import com.example.gates.signinsignup.Register;
 
 public class Home extends AppCompatActivity {
 
@@ -24,14 +26,14 @@ public class Home extends AppCompatActivity {
          b1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 startActivity(new Intent(getApplicationContext(),Login.class));
+                 startActivity(new Intent(getApplicationContext(), Login.class));
              }
          });
 
          b2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 startActivity(new Intent(getApplicationContext(),Register.class));
+                 startActivity(new Intent(getApplicationContext(), Register.class));
              }
          });
          
@@ -40,7 +42,7 @@ public class Home extends AppCompatActivity {
     void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("email")) {
-            startActivity(new Intent(getApplicationContext(), DashBord.class));
+            startActivity(new Intent(getApplicationContext(), DashBoard.class));
             finish();
         }
         else {

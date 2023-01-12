@@ -1,8 +1,10 @@
-package com.example.gates;
+package com.example.gates.signinsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.gates.R;
 
 public class Register extends AppCompatActivity {
 

@@ -16,21 +16,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".GetImage"
+            android:name=".myvisitor.MyVisitorMain"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DashBord"
+            android:name=".myvisitor.GetImage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".DashBoard"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".signinsignup.Register"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -50,28 +57,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Dashboard"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Login"
+            android:name=".signinsignup.Login"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".mycomplaint.MyComplaintMain"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GetData"
+            android:name=".residentdirectory.ResidentDirectory"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
