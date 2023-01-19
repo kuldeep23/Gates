@@ -5,121 +5,781 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".signinsignup.Register1"
     tools:ignore="HardcodedText">
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/textField"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:helperText="Required*"
-        app:helperTextTextColor="#FF0000"
-        android:hint="Name"
-        app:startIconDrawable="@drawable/ic_baseline_person_24"
-        app:endIconMode="clear_text">
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/image_icon"
+        android:contentDescription="ProfileImage"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-            android:id="@+id/secureEditTextAuthorizePin"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/textNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:hint="Number"
-        app:startIconDrawable="@drawable/ic_phone"
-        app:prefixText="+91-"
-        app:helperText="Required*"
-        app:helperTextTextColor="#FF0000"
-        app:counterEnabled="true"
-        app:counterMaxLength="10"
-        app:prefixTextColor="@color/purple_500"
-        app:endIconMode="clear_text">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="5dp"
+                android:text="Personal Details"
+                android:textColor="#DD2C00"
+                android:textSize="17sp"
+                tools:ignore="TextContrastCheck" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-            android:id="@+id/EditNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <!--Owner Name-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Owner Name"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="#FF0000"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:hint="Password"
-        app:startIconDrawable="@drawable/ic_lock"
-        app:helperText="Required*"
-        app:helperTextTextColor="#FF0000"
-        app:prefixTextColor="@color/purple_500"
-        app:endIconMode="password_toggle">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/secureEditTextAuthorizePin"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-            android:id="@+id/EditPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <!--Mobile Number-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textMobileNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Mobile Number"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="#FF0000"
+                app:prefixText="+91-"
+                app:prefixTextColor="@color/purple_500"
+                app:startIconDrawable="@drawable/ic_phone">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/textEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:hint="Email"
-        app:startIconDrawable="@drawable/ic_mail"
-        app:helperText="Required*"
-        app:helperTextTextColor="#FF0000"
-        app:prefixTextColor="@color/purple_500"
-        app:endIconMode="clear_text">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditMoblieNumber"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-            android:id="@+id/EditEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <!--Email-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Email"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:endIconMode="clear_text"
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-        android:id="@+id/textCity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:startIconDrawable="@drawable/ic_city"
-        app:helperText="Required*"
-        app:helperTextTextColor="#FF0000"
-        app:prefixTextColor="@color/purple_500"
-        app:endIconMode="clear_text">
+                app:helperTextTextColor="#FF0000"
+                app:prefixTextColor="@color/purple_500"
+                app:startIconDrawable="@drawable/ic_mail">
 
-        <AutoCompleteTextView
-            android:id="@+id/city"
-            android:hint="City"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditEmail"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Password-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Password"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:endIconMode="password_toggle"
+                app:prefixTextColor="@color/purple_500"
+                app:startIconDrawable="@drawable/ic_lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditPassword"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Home-Town Address-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textAddress"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Home-Town Address"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="#FF0000"
+                app:prefixTextColor="@color/purple_500"
+                app:startIconDrawable="@drawable/ic_home">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditAddress"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Member and Gender-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textMember"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="No. of Member">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/EditMember"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-        </AutoCompleteTextView>
-    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textGender"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Gender"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_person">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditGender"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColorHint="#757575"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--DOB and Blood Group-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textDOB"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Date of Birth"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_date">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditDOB"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColorHint="#757575"
+                            tools:ignore="TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textBloodGroup"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Blood Group"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_bloodtype">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditBloodGroup"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColorHint="#757575"
+                            tools:ignore="TextContrastCheck,TextContrastCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--Profession-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textProfession"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:hint="Profession"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="#FF0000"
+                app:prefixTextColor="@color/purple_500"
+                app:startIconDrawable="@drawable/ic_work">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditProfession"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Profession Details-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textProfDetails"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Profession Detail"
+                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="#FF0000"
+                app:prefixTextColor="@color/purple_500"
+                app:startIconDrawable="@drawable/ic_work">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditProfDetails"
+                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Flat Details"
+                android:textColor="#FF0000"
+                android:textSize="17sp" />
+
+            <!--Flat Number and Block-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFlatNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Flat Number"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_city">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditFlatNumber"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFlatBlock"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Flat Block"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_city">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditFlatBlock"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--Flat Floor and Type-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFlatFloor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Flat Floor"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_city">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditFlatFloor"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFlatType"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Flat Type"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_city">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditFlatType"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--Parking and Number-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textParkingType"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Parking Type"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_parking">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditParkingType"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textParkingNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Parking Number"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_parking">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditParkingNumber"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Pet Details"
+                android:textColor="#FF0000"
+                android:textSize="17sp" />
+
+            <!--Pet Details-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textPetType"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Pet Type"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_pets">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditPetType"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textPetName"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Pet Name"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_pets">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditPetName"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Vehicle Details"
+                android:textColor="#FF0000"
+                android:textSize="17sp" />
+
+            <!--Two Wheeler Vehicle Details-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textVehicleType"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Two Wheeler Type"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_bike">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditVehicleType"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textVehicleNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Vehicle Number"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_bike">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditVehicleNumber"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--Four Wheeler Vehicle Details-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFourVehicleType"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:hint="Four Wheeler Type"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_car">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditFourVehicleType"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFourVehicleNumber"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:hint="Vehicle Number"
+                        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                        app:endIconMode="clear_text"
+                        app:helperTextTextColor="#FF0000"
+                        app:prefixTextColor="@color/purple_500"
+                        app:startIconDrawable="@drawable/ic_car">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/EditFourVehicleNumber"
+                            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
