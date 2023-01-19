@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    style="@style/Theme.MaterialComponents.Light.NoActionBar">
 
     <ImageView
         android:layout_width="500dp"
@@ -18,6 +19,30 @@
         android:textSize="35dp"
         android:textStyle="bold"
         android:letterSpacing="0.03"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textMember"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="80dp"
+        android:hint="Member">
+
+        <Button
+            android:id="@+id/containedButton"
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:layout_height="70dp"
+            android:textSize="25dp"
+
+            android:text="SUBMIT"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
 
 
