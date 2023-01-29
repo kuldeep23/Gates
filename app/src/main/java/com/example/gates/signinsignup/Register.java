@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.example.gates.R;
 import com.example.gates.api.apiset;
+import com.example.gates.controller.Controller;
 import com.example.gates.signinsignup.model.RegisterModel;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -298,14 +299,17 @@ public class Register extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         image = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
 
-        Retrofit retrofit = new Retrofit.Builder()
+        /*Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        apiset api =retrofit.create(apiset.class);
+        apiset api =retrofit.create(apiset.class);*/
 
-        Call<RegisterModel> call = api.register_user(
+        Call<RegisterModel> call = Controller
+                .getInstance()
+                .getapi()
+                .register_user(
                 owner_tenant.getText().toString(),
                 owner_name.getText().toString(),
                 image,
