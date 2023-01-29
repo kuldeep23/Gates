@@ -1,91 +1,128 @@
 package com.example.gates.signinsignup;
 
+import static com.example.gates.controller.Controller.url;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.example.gates.R;
+import com.example.gates.api.apiset;
+import com.example.gates.signinsignup.model.RegisterModel;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Register extends AppCompatActivity {
 
+    private ImageView selectedImage;
+    Bitmap bitmap;
+    String image;
+    AutoCompleteTextView owner_tenant, member, gender, blood_group, profession, flat_block, flat_floor,
+            flat_type, parking_type, pet_type, two_wheeler_type, four_wheeler_brand;
+    TextInputEditText owner_name, contact_number, email, password, hometown_address, profession_details, flat_number,
+            parking_number, pet_name, two_wheeler_number, dob, four_wheeler_number;
+    Button register;
+    private ProgressBar progressBar;
 
-    AutoCompleteTextView autoCompleteTextViewOwnerType, autoCompleteTextViewMember, autoCompleteTextViewGender,autoCompleteTextViewBlood,
-                         autoCompleteTextViewProf, autoCompleteTextViewFBlock, autoCompleteTextViewFFloor,
-                         autoCompleteTextViewFType, autoCompleteTextViewParkingType, autoCompleteTextViewPetType,
-                         autoCompleteTextViewTwoTpye, autoCompleteTextViewFourType;
-    TextInputEditText dob;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1);
 
-        autoCompleteTextViewOwnerType = findViewById(R.id.EditOwnerType);
-        autoCompleteTextViewMember = findViewById(R.id.EditMember);
-        autoCompleteTextViewGender = findViewById(R.id.EditGender);
-        autoCompleteTextViewBlood = findViewById(R.id.EditBlood);
-        autoCompleteTextViewProf = findViewById(R.id.EditProfession);
-        autoCompleteTextViewFBlock = findViewById(R.id.EditFblock);
-        autoCompleteTextViewFFloor = findViewById(R.id.EditFFloor);
-        autoCompleteTextViewFType = findViewById(R.id.EditFType);
-        autoCompleteTextViewParkingType = findViewById(R.id.EditParkingType);
-        autoCompleteTextViewPetType = findViewById(R.id.EditPetType);
-        autoCompleteTextViewTwoTpye = findViewById(R.id.EditTwoType);
-        autoCompleteTextViewFourType = findViewById(R.id.EditFourType);
+        selectedImage = findViewById(R.id.imageView);
+        owner_name = findViewById(R.id.EditOwnerName);
+        contact_number = findViewById(R.id.EditMoblieNumber);
+        email = findViewById(R.id.EditEmail);
+        progressBar = findViewById(R.id.progressBar);
+        password = findViewById(R.id.EditPassword);
+        hometown_address = findViewById(R.id.EditAddress);
+        profession_details = findViewById(R.id.EditProfDetails);
+        flat_number = findViewById(R.id.EditFlatNumber);
+        parking_number = findViewById(R.id.EditParkingNumber);
+        pet_name = findViewById(R.id.EditPetName);
+        two_wheeler_number =findViewById(R.id.EditVehicleNumber);
+        four_wheeler_number = findViewById(R.id.EditFourVehicleNumber);
+        owner_tenant = findViewById(R.id.EditOwnerType);
+        member = findViewById(R.id.EditMember);
+        gender = findViewById(R.id.EditGender);
+        blood_group = findViewById(R.id.EditBlood);
+        profession = findViewById(R.id.EditProfession);
+        flat_block = findViewById(R.id.EditFblock);
+        flat_floor = findViewById(R.id.EditFFloor);
+        flat_type = findViewById(R.id.EditFType);
+        parking_type = findViewById(R.id.EditParkingType);
+        pet_type = findViewById(R.id.EditPetType);
+        two_wheeler_type = findViewById(R.id.EditTwoType);
+        four_wheeler_brand = findViewById(R.id.EditFourType);
         dob = findViewById(R.id.EditDOB);
+        register = findViewById(R.id.idBtnRegister);
 
-        Date date = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-        String formattedDate = df.format(date);
+        selectedImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImagePicker.with(Register.this)
+                        .compress(200)                          //Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(300, 300)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        /*.crop()*/	    			            //Crop image(Optional), Check Customization for more option
+                        .start();
+            }
+        });
+
         ArrayAdapter<String> ownerAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,OWNERTPYE);
-        autoCompleteTextViewOwnerType.setAdapter(ownerAdapter);
-        autoCompleteTextViewOwnerType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        owner_tenant.setAdapter(ownerAdapter);
+        owner_tenant.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, formattedDate, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, owner_tenant.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> memberAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,MEMBERS);
-        autoCompleteTextViewMember.setAdapter(memberAdapter);
-        autoCompleteTextViewMember.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        member.setAdapter(memberAdapter);
+        member.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewMember.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, member.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,GENDER);
-        autoCompleteTextViewGender.setAdapter(genderAdapter);
-        autoCompleteTextViewGender.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gender.setAdapter(genderAdapter);
+        gender.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewGender.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, gender.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> profAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,PROFESSION);
-        autoCompleteTextViewProf.setAdapter(profAdapter);
-        autoCompleteTextViewProf.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        profession.setAdapter(profAdapter);
+        profession.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewProf.getText().toString(), Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                Toast.makeText(Register.this, profession.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -108,85 +145,98 @@ public class Register extends AppCompatActivity {
         });
 
         ArrayAdapter<String> bloodAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,BLOOD);
-        autoCompleteTextViewBlood.setAdapter(bloodAdapter);
-        autoCompleteTextViewBlood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        blood_group.setAdapter(bloodAdapter);
+        blood_group.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewBlood.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, blood_group.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> fblockAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,FBLOCK);
-        autoCompleteTextViewFBlock.setAdapter(fblockAdapter);
-        autoCompleteTextViewFBlock.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        flat_block.setAdapter(fblockAdapter);
+        flat_block.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewFBlock.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, flat_block.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> ffloorAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,FFLOOR);
-        autoCompleteTextViewFFloor.setAdapter(ffloorAdapter);
-        autoCompleteTextViewFFloor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        flat_floor.setAdapter(ffloorAdapter);
+        flat_floor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewFFloor.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, flat_floor.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> ftypeAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,FTYPE);
-        autoCompleteTextViewFType.setAdapter(ftypeAdapter);
-        autoCompleteTextViewFType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        flat_type.setAdapter(ftypeAdapter);
+        flat_type.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewFType.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, flat_type.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> ptypeAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,PTYPE);
-        autoCompleteTextViewParkingType.setAdapter(ptypeAdapter);
-        autoCompleteTextViewParkingType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        parking_type.setAdapter(ptypeAdapter);
+        parking_type.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewParkingType.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, parking_type.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> pettypeAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,PETTYPE);
-        autoCompleteTextViewPetType.setAdapter(pettypeAdapter);
-        autoCompleteTextViewPetType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        pet_type.setAdapter(pettypeAdapter);
+        pet_type.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewPetType.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, pet_type.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         ArrayAdapter<String> twotypeAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,TWOTYPE);
-        autoCompleteTextViewTwoTpye.setAdapter(twotypeAdapter);
-        autoCompleteTextViewTwoTpye.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        two_wheeler_type.setAdapter(twotypeAdapter);
+        two_wheeler_type.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewTwoTpye.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, two_wheeler_type.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
 
         ArrayAdapter<String> fourtypeAdapter = new ArrayAdapter<>(Register.this,R.layout.item_list,FOURTYPE);
-        autoCompleteTextViewFourType.setAdapter(fourtypeAdapter);
-        autoCompleteTextViewFourType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        four_wheeler_brand.setAdapter(fourtypeAdapter);
+        four_wheeler_brand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = String.valueOf(adapterView.getItemIdAtPosition(i));
-                Toast.makeText(Register.this, autoCompleteTextViewFourType.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, four_wheeler_brand.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                process(bitmap);
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Uri uri = data.getData();
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+            selectedImage.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -235,6 +285,66 @@ public class Register extends AppCompatActivity {
     };
 
     private static final String[] FOURTYPE = new String[] {
-            "Maruti Suzuki", "Tata Motors" ,"Mahindra & Mahindra", "Kia", "Hyundai","Toyota", "Renaults","Honda","Ford","Skoda","MG","Volkswagen","BMW","Jeep","Audi","Mercedes","Nissan","Datsun"
+            "Maruti Suzuki", "Tata Motors" ,"Mahindra & Mahindra", "Kia", "Hyundai","Toyota", "Renaults",
+            "Honda","Ford","Skoda","MG","Volkswagen","BMW","Jeep","Audi","Mercedes","Nissan","Datsun"
     };
+
+
+    private void process(Bitmap bitmap) {
+
+        progressBar.setVisibility(View.VISIBLE);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        image = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        apiset api =retrofit.create(apiset.class);
+
+        Call<RegisterModel> call = api.register_user(
+                owner_tenant.getText().toString(),
+                owner_name.getText().toString(),
+                image,
+                contact_number.getText().toString(),
+                email.getText().toString(),
+                password.getText().toString(),
+                hometown_address.getText().toString(),
+                member.getText().toString(),
+                gender.getText().toString(),
+                dob.getText().toString(),
+                blood_group.getText().toString(),
+                profession.getText().toString(),
+                profession_details.getText().toString(),
+                flat_number.getText().toString(),
+                flat_block.getText().toString(),
+                flat_floor.getText().toString(),
+                flat_type.getText().toString(),
+                parking_type.getText().toString(),
+                parking_number.getText().toString(),
+                pet_type.getText().toString(),
+                pet_name.getText().toString(),
+                two_wheeler_type.getText().toString(),
+                two_wheeler_number.getText().toString(),
+                four_wheeler_brand.getText().toString(),
+                four_wheeler_number.getText().toString()
+                );
+
+        call.enqueue(new Callback<RegisterModel>() {
+            @Override
+            public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(Register.this, "User Added Successfully", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<RegisterModel> call, Throwable t) {
+                Toast.makeText(Register.this, t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
 }

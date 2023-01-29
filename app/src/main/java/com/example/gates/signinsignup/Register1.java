@@ -14,10 +14,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class Register1 extends AppCompatActivity {
 
-    TextInputLayout textInputLayout;
-    AutoCompleteTextView autoCompleteTextView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
