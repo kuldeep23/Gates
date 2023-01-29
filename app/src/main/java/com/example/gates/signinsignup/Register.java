@@ -78,6 +78,7 @@ public class Register extends AppCompatActivity {
         dob = findViewById(R.id.EditDOB);
         register = findViewById(R.id.idBtnRegister);
 
+
         selectedImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
