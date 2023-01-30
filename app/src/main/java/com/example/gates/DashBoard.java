@@ -11,6 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.gates.billpayment.BillPaymentMain;
+import com.example.gates.communication.CommunicationMain;
+import com.example.gates.domesticstaff.DomesticStaffMain;
+import com.example.gates.mycomplaint.MyComplaint;
 import com.example.gates.mycomplaint.MyComplaintMain;
 import com.example.gates.myvisitor.GetImage;
 import com.example.gates.myvisitor.MyVisitorMain;
@@ -19,82 +23,65 @@ import com.example.gates.signinsignup.Login;
 
 public class DashBoard extends AppCompatActivity {
 
-    CardView cardHome, cardChat, cardProfile, cardWidget, cardSetting, cardLogout;
+    CardView cardvisitor, carddomestic, cardbills, cardcommunication, cardcomplaints, cardLogout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_bord);
+        setContentView(R.layout.dashboard);
 
-        cardHome = findViewById(R.id.card_home);
-        cardChat = findViewById(R.id.card_chat);
-        cardProfile = findViewById(R.id.card_profile);
-        cardWidget = findViewById(R.id.card_widget);
-        cardSetting = findViewById(R.id.card_setting);
-        cardLogout = findViewById(R.id.card_logout);
+        cardvisitor = findViewById(R.id.visitor);
+        carddomestic = findViewById(R.id.domestic);
+        cardbills = findViewById(R.id.bills);
+        cardcommunication = findViewById(R.id.communication);
+        cardcomplaints = findViewById(R.id.complaints);
 
         checkUserExistance();
 
-        cardHome.setOnClickListener(new View.OnClickListener() {
+        cardvisitor.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ResidentDirectory.class));
-                showToast("Home Click");
-            }
-        });
-
-        cardChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MyComplaintMain.class));
-                showToast("Card Chat Click");
-            }
-        });
-
-        cardProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), GetImage.class));
-                showToast("Card Profile Click");
-            }
-        });
-
-        cardWidget.setOnClickListener(new View.OnClickListener() {
-            @Override
-
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), MyVisitorMain.class));
-                showToast("Card Widget Click");
             }
         });
 
-        cardSetting.setOnClickListener(new View.OnClickListener() {
+        carddomestic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("Card Setting Click");
+                startActivity(new Intent(getApplicationContext(), DomesticStaffMain.class));
             }
         });
 
-
-        cardLogout.setOnClickListener(new View.OnClickListener() {
+        cardbills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                startActivity(new Intent(getApplicationContext(), BillPaymentMain.class));
+            }
+        });
+
+        cardcommunication.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CommunicationMain.class));
+            }
+        });
+
+        cardcomplaints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                 sp.edit().remove("email").commit();
                 sp.edit().remove("password").commit();
                 sp.edit().apply();
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
-                showToast("Card Logout Click");
+                showToast("Card Logout Click");*/
+                startActivity(new Intent(getApplicationContext(), MyComplaint.class));
             }
         });
 
-
-    }
-
-    private void showToast(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
+}
     public void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("email"))

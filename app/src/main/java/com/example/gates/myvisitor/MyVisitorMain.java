@@ -50,13 +50,8 @@ public class MyVisitorMain extends AppCompatActivity {
             }
         });
 
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         //Listener for scroll or page change
-
-
-
-
 
     }
 }

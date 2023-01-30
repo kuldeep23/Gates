@@ -19,6 +19,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".mycomplaint.MyComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".communication.CommunicationMain"
+            android:exported="false" />
+        <activity
+            android:name=".billpayment.BillPaymentMain"
+            android:exported="false" />
+        <activity
+            android:name=".domesticstaff.DomesticStaffMain"
+            android:exported="false" />
+        <activity
             android:name=".signinsignup.Register1"
             android:exported="false">
             <meta-data
