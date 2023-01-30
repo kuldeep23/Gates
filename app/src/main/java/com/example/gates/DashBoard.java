@@ -23,7 +23,7 @@ public class DashBoard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_bord);
+        setContentView(R.layout.activity_dashboard);
 
         cardHome = findViewById(R.id.card_home);
         cardChat = findViewById(R.id.card_chat);
