@@ -3,6 +3,8 @@ package com.example.gates;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,17 +15,27 @@ import android.widget.Toast;
 
 import com.example.gates.billpayment.BillPaymentMain;
 import com.example.gates.communication.CommunicationMain;
+import com.example.gates.controller.Controller;
 import com.example.gates.domesticstaff.DomesticStaffMain;
 import com.example.gates.mycomplaint.MyComplaint;
 import com.example.gates.mycomplaint.MyComplaintMain;
 import com.example.gates.myvisitor.GetImage;
 import com.example.gates.myvisitor.MyVisitorMain;
+import com.example.gates.myvisitor.adapter.AllVisitorAdaptar;
+import com.example.gates.myvisitor.model.AllVisitorModel;
 import com.example.gates.residentdirectory.ResidentDirectory;
 import com.example.gates.signinsignup.Login;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DashBoard extends AppCompatActivity {
 
     CardView cardvisitor, carddomestic, cardbills, cardcommunication, cardcomplaints, cardLogout;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +49,12 @@ public class DashBoard extends AppCompatActivity {
         cardcomplaints = findViewById(R.id.complaints);
 
         checkUserExistance();
+
+        // Inflate the layout for this fragment
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerView = findViewById(R.id.recview);
+        recyclerView.setLayoutManager(layoutManager);
+        processdata();
 
         cardvisitor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +100,27 @@ public class DashBoard extends AppCompatActivity {
         });
 
 }
+
+    public void processdata(){
+        Call<List<AllVisitorModel>> call = Controller
+                .getInstance()
+                .getapi()
+                .getdata();
+
+        call.enqueue(new Callback<List<AllVisitorModel>>() {
+            @Override
+            public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>> response) {
+                List<AllVisitorModel> data = response.body();
+                AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
+                recyclerView.setAdapter(myAdaptar);
+            }
+
+            @Override
+            public void onFailure(Call<List<AllVisitorModel>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     public void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("email"))
