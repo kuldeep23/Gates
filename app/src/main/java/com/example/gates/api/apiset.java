@@ -1,5 +1,6 @@
 package com.example.gates.api;
 
+import com.example.gates.mybanner.bannermodel;
 import com.example.gates.mycomplaint.model.ComplaintModel;
 import com.example.gates.signinsignup.model.LoginModel;
 import com.example.gates.myvisitor.model.AllVisitorModel;
@@ -28,6 +29,9 @@ public interface apiset {
 
     @GET("get_image.php")
     Call<List<AllVisitorModel>> getdata();
+
+    @GET("get_banner.php")
+    Call<List<bannermodel>> getbanner();
 
     @FormUrlEncoded
     @POST("signup.php")

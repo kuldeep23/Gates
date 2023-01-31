@@ -17,6 +17,8 @@ import com.example.gates.billpayment.BillPaymentMain;
 import com.example.gates.communication.CommunicationMain;
 import com.example.gates.controller.Controller;
 import com.example.gates.domesticstaff.DomesticStaffMain;
+import com.example.gates.mybanner.BannerAdapter;
+import com.example.gates.mybanner.bannermodel;
 import com.example.gates.mycomplaint.MyComplaint;
 import com.example.gates.mycomplaint.MyComplaintMain;
 import com.example.gates.myvisitor.GetImage;
@@ -102,21 +104,21 @@ public class DashBoard extends AppCompatActivity {
 }
 
     public void processdata(){
-        Call<List<AllVisitorModel>> call = Controller
+        Call<List<bannermodel>> call = Controller
                 .getInstance()
                 .getapi()
-                .getdata();
+                .getbanner();
 
-        call.enqueue(new Callback<List<AllVisitorModel>>() {
+        call.enqueue(new Callback<List<bannermodel>>() {
             @Override
-            public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>> response) {
-                List<AllVisitorModel> data = response.body();
-                AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
+            public void onResponse(Call<List<bannermodel>> call, Response<List<bannermodel>> response) {
+                List<bannermodel> data = response.body();
+                BannerAdapter myAdaptar = new BannerAdapter(data);
                 recyclerView.setAdapter(myAdaptar);
             }
 
             @Override
-            public void onFailure(Call<List<AllVisitorModel>> call, Throwable t) {
+            public void onFailure(Call<List<bannermodel>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
