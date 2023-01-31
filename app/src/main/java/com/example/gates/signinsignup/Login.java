@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gates.controller.Controller;
 import com.example.gates.DashBoard;
@@ -34,7 +35,6 @@ public class Login extends AppCompatActivity {
 
         t1=(EditText)findViewById(R.id.idEdtEmail);
         t2 = (EditText) findViewById(R.id.idEdtPassword);
-        tv = (TextView) findViewById(R.id.idtext);
         loginbtn = (Button) findViewById(R.id.idBtnLogin);
 
       //  checkUserExistance();
@@ -66,8 +66,6 @@ public class Login extends AppCompatActivity {
                 {
                     t1.setText("");
                     t2.setText("");
-                    tv.setTextColor(Color.RED);
-                    tv.setText("Invalid username or password");
                 }
                 if(output.equals("exist"))
                 {
@@ -86,8 +84,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginModel> call, Throwable t) {
-                tv.setText(t.toString());
-                tv.setTextColor(Color.RED);
+                Toast.makeText(Login.this, t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

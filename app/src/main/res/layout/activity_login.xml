@@ -6,9 +6,9 @@
     android:gravity="center_horizontal">
 
     <ImageView
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/image"></ImageView>
+        android:src="@drawable/gatesupdates"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,14 +41,6 @@
         android:layout_marginTop="20dp"
         android:paddingLeft="20dp"/>
 
-    <TextView
-        android:id="@+id/idtext"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:text="Hello"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,5 +74,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u00A9 Damaya Services Jhansi"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="16dp"/>
 
 </LinearLayout>

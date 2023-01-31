@@ -6,16 +6,17 @@
     android:gravity="center_horizontal">
 
     <ImageView
-        android:layout_width="500dp"
-        android:layout_height="350dp"
-        android:src="@drawable/image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/visitorentry"
         android:layout_marginTop="20dp"
         ></ImageView>
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Gates"
+        android:text="Welcome to Secure Gates"
+        android:textAlignment="center"
         android:textColor="#0d6e6a"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose to Procced"
+        android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textSize="16dp"/>
 
@@ -49,5 +51,13 @@
         android:textStyle="bold"
         android:textColor="#fff"
         android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u00A9 Damaya Services Jhansi"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="16dp"/>
 
 </LinearLayout>
