@@ -5,13 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".myvisitor.ExpectedVisitor">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is fragment Two"
-        android:gravity="center"
-        android:textSize="30dp"
-        android:textColor="@color/teal_700" />
+        android:id="@+id/recview"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/img"
+        android:src="@drawable/gatesupdates"></ImageView>
 
 </FrameLayout>

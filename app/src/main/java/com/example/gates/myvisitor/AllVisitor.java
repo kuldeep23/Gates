@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.gates.controller.Controller;
@@ -39,6 +40,7 @@ public class AllVisitor extends Fragment {
     private String mParam2;
 
     RecyclerView recyclerView;
+    ImageView imageView;
     public AllVisitor() {
         // Required empty public constructor
     }
@@ -76,6 +78,7 @@ public class AllVisitor extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_tab1, container, false);
         recyclerView = view.findViewById(R.id.recview);
+        imageView = view.findViewById(R.id.img);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         processdata();
         return view;
@@ -91,8 +94,17 @@ public class AllVisitor extends Fragment {
             @Override
             public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>> response) {
                 List<AllVisitorModel> data = response.body();
-                AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
-                recyclerView.setAdapter(myAdaptar);
+
+                if(data!=null){
+                    recyclerView.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.GONE);
+                    AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
+                    recyclerView.setAdapter(myAdaptar);
+                }
+                else {
+                    recyclerView.setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

@@ -30,7 +30,7 @@ public interface apiset {
     @GET("get_image.php")
     Call<List<AllVisitorModel>> getdata();
 
-    @GET("get_banner.php")
+    @GET("banner.php")
     Call<List<bannermodel>> getbanner();
 
     @FormUrlEncoded

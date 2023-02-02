@@ -10,11 +10,10 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
+        android:background="@color/white"
         android:id="@+id/tablayout"
-        app:tabTextColor="@color/black"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@color/white">
+        app:tabSelectedTextColor="@color/black"
+        app:tabIndicatorColor="@color/teal_200">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -25,13 +24,13 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Expected"
+            android:text="Current"
             android:id="@+id/tabexpected"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Current"
+            android:text="Past"
             android:id="@+id/tabcurrent"/>
     </com.google.android.material.tabs.TabLayout>
 
