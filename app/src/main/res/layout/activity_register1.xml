@@ -9,8 +9,6 @@
     tools:context=".signinsignup.Register1"
     tools:ignore="HardcodedText">
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -121,7 +119,6 @@
                 android:hint="Email"
                 android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
                 app:endIconMode="clear_text"
-
                 app:helperTextTextColor="#FF0000"
                 app:prefixTextColor="@color/purple_500"
                 app:startIconDrawable="@drawable/ic_mail">
