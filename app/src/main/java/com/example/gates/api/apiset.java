@@ -18,7 +18,7 @@ import retrofit2.http.POST;
 public interface apiset {
 
     @FormUrlEncoded
-    @POST("login.php")
+    @POST("jh_login.php")
     Call<LoginModel> verifyuser(
             @Field("email") String email,
             @Field("password") String password
