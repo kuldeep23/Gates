@@ -30,10 +30,10 @@ public class GetImage extends AppCompatActivity {
         recview = findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
 
-        processdata();
+       // processdata();
     }
 
-    public void processdata(){
+    /*public void processdata(){
         Call<List<AllVisitorModel>> call = Controller
                                         .getInstance()
                                         .getapi()
@@ -52,5 +52,5 @@ public class GetImage extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
+    }*/
 }

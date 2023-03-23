@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayout;
 public class MyVisitorMain extends AppCompatActivity {
 
     TabLayout tabLayout;
-    TabItem tabItem1, tabItem2, tabItem3;
+    TabItem tabItem1, tabItem2, tabItem3, tabItem4;
     ViewPager viewPager;
     MyVisitorPageAdapter pageAdapter;
 
@@ -26,6 +26,7 @@ public class MyVisitorMain extends AppCompatActivity {
         tabItem1 = (TabItem) findViewById(R.id.taball);
         tabItem2 = (TabItem) findViewById(R.id.tabexpected);
         tabItem3 = (TabItem) findViewById(R.id.tabcurrent);
+        tabItem4 = (TabItem) findViewById(R.id.tabwrong);
         viewPager = (ViewPager) findViewById(R.id.vpager);
 
         pageAdapter = new MyVisitorPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
@@ -35,7 +36,7 @@ public class MyVisitorMain extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition() ==0 || tab.getPosition() ==1 || tab.getPosition() ==2)
+                if(tab.getPosition() ==0 || tab.getPosition() ==1 || tab.getPosition() ==2 || tab.getPosition() ==3)
                     pageAdapter.notifyDataSetChanged();
             }
 

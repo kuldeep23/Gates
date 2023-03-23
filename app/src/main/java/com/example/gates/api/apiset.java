@@ -27,8 +27,13 @@ public interface apiset {
     @GET("details.php")
     Call<List<GetModel>> getmodels();
 
-    @GET("get_image.php")
-    Call<List<AllVisitorModel>> getdata();
+    @FormUrlEncoded
+    @POST("get_all_visitors.php")
+    Call<List<AllVisitorModel>> all_visitors(
+            @Field("soc") String soc,
+            @Field("visitor_flat_no") String flat_no,
+            @Field("visitor_is_valid") String is_valid
+    );
 
     @GET("banner.php")
     Call<List<bannermodel>> getbanner();
@@ -69,4 +74,11 @@ public interface apiset {
             @Field("Two_Wheeler_Number") String two_wheeler_number,
             @Field("Four_Wheeler_Brand") String four_wheeler_brand,
             @Field("Four_Wheeler_Number") String four_wheeler_number);
+
+
+    @FormUrlEncoded
+    @POST("visitor_wrong.php")
+    Call<AllVisitorModel> visitorwrong(
+            @Field("visitor_id") String visitorid
+    );
 }

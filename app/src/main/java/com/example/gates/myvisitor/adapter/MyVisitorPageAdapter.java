@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.gates.myvisitor.AllVisitor;
 import com.example.gates.myvisitor.CurrentVisitor;
 import com.example.gates.myvisitor.ExpectedVisitor;
+import com.example.gates.myvisitor.WrongVisitor;
 
 public class MyVisitorPageAdapter extends FragmentPagerAdapter
 {
@@ -25,6 +26,7 @@ public class MyVisitorPageAdapter extends FragmentPagerAdapter
             case 0 : return new AllVisitor();
             case 1 : return new ExpectedVisitor();
             case 2 : return new CurrentVisitor();
+            case 3 : return new WrongVisitor();
             default: return null;
         }
 

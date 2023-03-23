@@ -7,6 +7,14 @@
     tools:context=".myvisitor.MyVisitorMain"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,22 +26,29 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All"
+            android:text="ALL"
             android:id="@+id/taball"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Current"
+            android:text="CURRENT"
             android:id="@+id/tabexpected"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Past"
+            android:text="PAST"
             android:id="@+id/tabcurrent"/>
-    </com.google.android.material.tabs.TabLayout>
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WRONG"
+            android:id="@+id/tabwrong"/>
+    </com.google.android.material.tabs.TabLayout>
+        </LinearLayout>
+    </ScrollView>
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"

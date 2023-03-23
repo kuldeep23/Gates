@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -52,7 +53,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".DashBoard"
+            android:name=".Home"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -66,7 +67,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Home"
+            android:name=".DashBoard"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

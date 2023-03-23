@@ -88,13 +88,15 @@ public class AllVisitor extends Fragment {
         Call<List<AllVisitorModel>> call = Controller
                 .getInstance()
                 .getapi()
-                .getdata();
+                .all_visitors
+                        ("CP",
+                        "360",
+                        "1");
 
         call.enqueue(new Callback<List<AllVisitorModel>>() {
             @Override
-            public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>> response) {
+            public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>>response) {
                 List<AllVisitorModel> data = response.body();
-
                 if(data!=null){
                     recyclerView.setVisibility(View.VISIBLE);
                     imageView.setVisibility(View.GONE);
@@ -108,7 +110,7 @@ public class AllVisitor extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<AllVisitorModel>> call, Throwable t) {
+            public void onFailure(Call <List<AllVisitorModel>>call, Throwable t) {
                 Toast.makeText(getContext(), t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
