@@ -90,14 +90,14 @@ public class DashBoard extends AppCompatActivity {
         cardcomplaints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                 sp.edit().remove("email").commit();
                 sp.edit().remove("password").commit();
                 sp.edit().apply();
                 startActivity(new Intent(getApplicationContext(), Login.class));
+                Toast.makeText(DashBoard.this, "Card Logout Click", Toast.LENGTH_SHORT).show();
                 finish();
-                showToast("Card Logout Click");*/
-                startActivity(new Intent(getApplicationContext(), MyComplaint.class));
+                //startActivity(new Intent(getApplicationContext(), MyComplaint.class));
             }
         });
 

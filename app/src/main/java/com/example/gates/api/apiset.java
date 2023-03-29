@@ -2,6 +2,7 @@ package com.example.gates.api;
 
 import com.example.gates.mybanner.bannermodel;
 import com.example.gates.mycomplaint.model.ComplaintModel;
+import com.example.gates.myvisitor.model.AllInsideModel;
 import com.example.gates.signinsignup.model.LoginModel;
 import com.example.gates.myvisitor.model.AllVisitorModel;
 import com.example.gates.residentdirectory.model.GetModel;
@@ -30,6 +31,14 @@ public interface apiset {
     @FormUrlEncoded
     @POST("get_all_visitors.php")
     Call<List<AllVisitorModel>> all_visitors(
+            @Field("soc") String soc,
+            @Field("visitor_flat_no") String flat_no,
+            @Field("visitor_is_valid") String is_valid
+    );
+
+    @FormUrlEncoded
+    @POST("get_inside_visitors.php")
+    Call<List<AllInsideModel>> all_inside_visitors(
             @Field("soc") String soc,
             @Field("visitor_flat_no") String flat_no,
             @Field("visitor_is_valid") String is_valid

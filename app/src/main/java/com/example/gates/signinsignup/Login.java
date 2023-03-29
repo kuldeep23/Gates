@@ -64,6 +64,7 @@ public class Login extends AppCompatActivity {
                 String output = obj.getMessage();
                 if(output.equals("failed"))
                 {
+                    Toast.makeText(Login.this, "Invaild Username and Password", Toast.LENGTH_SHORT).show();
                     t1.setText("");
                     t2.setText("");
                 }

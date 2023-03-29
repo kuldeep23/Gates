@@ -23,10 +23,10 @@ public class MyVisitorMain extends AppCompatActivity {
         setContentView(R.layout.activity_my_tab_demo_app);
 
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
-        tabItem1 = (TabItem) findViewById(R.id.taball);
+        tabItem1 = (TabItem) findViewById(R.id.tabcurrent);
         tabItem2 = (TabItem) findViewById(R.id.tabexpected);
-        tabItem3 = (TabItem) findViewById(R.id.tabcurrent);
-        tabItem4 = (TabItem) findViewById(R.id.tabwrong);
+        tabItem3 = (TabItem) findViewById(R.id.tabwrong);
+        tabItem4 = (TabItem) findViewById(R.id.taball);
         viewPager = (ViewPager) findViewById(R.id.vpager);
 
         pageAdapter = new MyVisitorPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());

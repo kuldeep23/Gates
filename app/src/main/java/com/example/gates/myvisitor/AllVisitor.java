@@ -76,7 +76,7 @@ public class AllVisitor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_tab1, container, false);
+        View view= inflater.inflate(R.layout.fragment_tab4, container, false);
         recyclerView = view.findViewById(R.id.recview);
         imageView = view.findViewById(R.id.img);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

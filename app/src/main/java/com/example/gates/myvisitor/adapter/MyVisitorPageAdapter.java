@@ -23,10 +23,10 @@ public class MyVisitorPageAdapter extends FragmentPagerAdapter
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0 : return new AllVisitor();
+            case 0 : return new CurrentVisitor();
             case 1 : return new ExpectedVisitor();
-            case 2 : return new CurrentVisitor();
-            case 3 : return new WrongVisitor();
+            case 2 : return new WrongVisitor();
+            case 3 : return new AllVisitor();
             default: return null;
         }
 
