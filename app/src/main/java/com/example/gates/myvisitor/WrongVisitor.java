@@ -3,12 +3,27 @@ package com.example.gates.myvisitor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.gates.R;
+import com.example.gates.controller.Controller;
+import com.example.gates.myvisitor.adapter.AllVisitorAdaptar;
+import com.example.gates.myvisitor.adapter.AllWrongAdapter;
+import com.example.gates.myvisitor.model.AllVisitorModel;
+import com.example.gates.myvisitor.model.AllWrongModel;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +40,8 @@ public class WrongVisitor extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    RecyclerView recyclerView;
+    ImageView imageView;
     public WrongVisitor() {
         // Required empty public constructor
     }
@@ -61,6 +77,42 @@ public class WrongVisitor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab4, container, false);
+        View view= inflater.inflate(R.layout.fragment_tab3, container, false);
+        recyclerView = view.findViewById(R.id.recview);
+        imageView = view.findViewById(R.id.img);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        processdata();
+        return view;
+    }
+
+
+    public void processdata(){
+        Call<List<AllWrongModel>> call = Controller
+                .getInstance()
+                .getapi()
+                .all_wrong_visitors
+                        ("CP", "360");
+
+        call.enqueue(new Callback<List<AllWrongModel>>() {
+            @Override
+            public void onResponse(Call<List<AllWrongModel>> call, Response<List<AllWrongModel>> response) {
+                List<AllWrongModel> data = response.body();
+                if(data!=null){
+                    recyclerView.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.GONE);
+                    AllWrongAdapter myAdaptar = new AllWrongAdapter(data);
+                    recyclerView.setAdapter(myAdaptar);
+                }
+                else {
+                    recyclerView.setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call <List<AllWrongModel>>call, Throwable t) {
+                Toast.makeText(getContext(), t.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
