@@ -16,6 +16,7 @@ import com.example.gates.controller.Controller;
 import com.example.gates.myvisitor.adapter.AllVisitorAdaptar;
 import com.example.gates.R;
 import com.example.gates.myvisitor.model.AllVisitorModel;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class AllVisitor extends Fragment {
 
     RecyclerView recyclerView;
     ImageView imageView;
+    ShimmerFrameLayout shimmerFrameLayout;
     public AllVisitor() {
         // Required empty public constructor
     }
@@ -76,7 +78,10 @@ public class AllVisitor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view= inflater.inflate(R.layout.fragment_tab4, container, false);
+        shimmerFrameLayout = view.findViewById(R.id.shimmer);
+        shimmerFrameLayout.startShimmer();
         recyclerView = view.findViewById(R.id.recview);
         imageView = view.findViewById(R.id.img);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -98,15 +103,17 @@ public class AllVisitor extends Fragment {
             public void onResponse(Call<List<AllVisitorModel>> call, Response<List<AllVisitorModel>>response) {
                 List<AllVisitorModel> data = response.body();
                 if(data!=null){
+                    shimmerFrameLayout.stopShimmer();
+                    shimmerFrameLayout.setVisibility(View.GONE);
                     recyclerView.setVisibility(View.VISIBLE);
-                    imageView.setVisibility(View.GONE);
+                    //imageView.setVisibility(View.GONE);
                     AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
                     recyclerView.setAdapter(myAdaptar);
                 }
-                else {
+               /* else {
                     recyclerView.setVisibility(View.GONE);
                     imageView.setVisibility(View.VISIBLE);
-                }
+                }*/
             }
 
             @Override

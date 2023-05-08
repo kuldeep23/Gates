@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimaryDark">#357EC7</color>
     <color name="colorAccent">#C0C0C0</color>
+    <color name="shimmerColor">#BFBDBD</color>
 </resources>

@@ -5,14 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".myvisitor.CurrentVisitor">
 
-
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recview" />
+        android:id="@+id/recview"/>
 
     <ImageView
         android:layout_width="match_parent"
