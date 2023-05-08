@@ -11,7 +11,7 @@ import com.example.gates.R;
 
 public class DomesticStaffMain extends AppCompatActivity {
 
-    CardView cardView;
+    CardView cardView, cardView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class DomesticStaffMain extends AppCompatActivity {
         setContentView(R.layout.domestic_staff_main);
 
         cardView = findViewById(R.id.domestic);
+        cardView1 = findViewById(R.id.visitor);
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +29,12 @@ public class DomesticStaffMain extends AppCompatActivity {
             }
         });
 
-
+        cardView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),StaffMembers.class);
+                startActivity(i);
+            }
+        });
     }
 }

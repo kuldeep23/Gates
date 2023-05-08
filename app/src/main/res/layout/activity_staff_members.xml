@@ -1,146 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
-    android:id="@+id/eachCardView"
-    app:cardElevation="8dp"
-    android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardUseCompatPadding="true">
+    android:layout_height="match_parent"
+    tools:context=".domesticstaff.StaffMembers">
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recview"/>
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_gravity="center"
+        android:id="@+id/img"
+        android:src="@drawable/gatesupdates"></ImageView>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/visitor_image"
-            android:layout_width="90dp"
-            android:src="@drawable/ic_gender"
-            android:layout_height="90dp"
-            app:civ_border_width="2dp"
-            app:civ_border_color="@color/teal_700"/>
-
-<!--        <ImageView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:src="@color/teal_700"-->
-<!--            android:id="@+id/visitor_image"/>-->
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sunil"
-            android:textSize="20dp"
-            android:layout_toRightOf="@+id/visitor_image"
-            android:layout_marginLeft="09dp"
-            android:textColor="#000"
-            android:id="@+id/visitor_name"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DELIVERY"
-            android:padding="5dp"
-            android:textSize="15dp"
-            android:background="@color/teal_700"
-            android:textColor="#FFFF"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/visitor_image"
-            android:layout_below="@+id/visitor_name"
-            android:id="@+id/visitor_type"/>
-
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar"
-            style="?android:attr/ratingBarStyleIndicator"
-            android:scaleX=".6"
-            android:rating="3.5"
-            android:scaleY=".6"
-            android:transformPivotX="15dp"
-            android:transformPivotY="10dp"
-            android:layout_toRightOf="@+id/visitor_type"
-            android:layout_below="@id/visitor_name"
-            android:max="5"/>
-
-
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_home"
-           android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/visitor_image"
-            android:layout_below="@+id/visitor_type"
-            android:id="@+id/approve_by"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="B-360"
-            android:textSize="18dp"
-            android:layout_toRightOf="@+id/approve_by"
-            android:layout_below="@+id/visitor_type"
-            android:id="@+id/flat_no"/>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/visitor_image"
-            android:layout_marginTop="10dp"
-            android:background="#E8E8E8" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:baselineAligned="false"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/visitor_image">
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="5dp">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/teal_700"
-                    android:text="HIRE THIS"
-                    android:textColor="#FFF"
-                    android:id="@+id/wrong_entry"/>
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="5dp">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Call"
-                    android:background="@color/teal_700"
-                    android:textColor="#FFF"
-                    android:id="@+id/visitor_call"/>
-            </RelativeLayout>
-        </LinearLayout>
-
-    </RelativeLayout>
-
-
-
-
-</androidx.cardview.widget.CardView>
+</FrameLayout>

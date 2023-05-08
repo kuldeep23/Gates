@@ -1,5 +1,6 @@
 package com.example.gates.api;
 
+import com.example.gates.domesticstaff.model.AllStaffMemberModel;
 import com.example.gates.domesticstaff.model.AllStaffModel;
 import com.example.gates.mybanner.bannermodel;
 import com.example.gates.mycomplaint.model.ComplaintModel;
@@ -104,5 +105,12 @@ public interface apiset {
     @POST("staff_list.php")
     Call<List<AllStaffModel>> staff_list(
             @Field("soc") String soc
+    );
+
+    @FormUrlEncoded
+    @POST("staff_member.php")
+    Call<List<AllStaffMemberModel>> staff_members(
+            @Field("soc") String soc,
+            @Field("staff_type") String staff_type
     );
 }
