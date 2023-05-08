@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     android:id="@+id/eachCardView"
-    app:cardElevation="8dp"
+    app:cardElevation="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardUseCompatPadding="true">

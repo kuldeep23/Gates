@@ -18,6 +18,7 @@
 
         <ImageView
             android:layout_width="100dp"
+            android:layout_marginTop="5dp"
             android:layout_height="100dp"
             android:background="@color/shimmerColor"
             android:id="@+id/visitor_image"/>
@@ -91,7 +92,7 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:background="@color/shimmerColor"
                     android:textColor="#000"
@@ -130,11 +131,11 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:background="@color/shimmerColor"
                     android:textColor="#000"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -169,7 +170,7 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:background="@color/shimmerColor"
                     android:textColor="#000"

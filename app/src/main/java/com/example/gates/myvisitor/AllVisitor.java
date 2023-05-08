@@ -81,7 +81,7 @@ public class AllVisitor extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_tab4, container, false);
         shimmerFrameLayout = view.findViewById(R.id.shimmer);
-        shimmerFrameLayout.startShimmer();
+
         recyclerView = view.findViewById(R.id.recview);
         imageView = view.findViewById(R.id.img);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -110,10 +110,12 @@ public class AllVisitor extends Fragment {
                     AllVisitorAdaptar myAdaptar = new AllVisitorAdaptar(data);
                     recyclerView.setAdapter(myAdaptar);
                 }
-               /* else {
+               else {
+                    shimmerFrameLayout.startShimmer();
+                    shimmerFrameLayout.setVisibility(View.VISIBLE);
                     recyclerView.setVisibility(View.GONE);
-                    imageView.setVisibility(View.VISIBLE);
-                }*/
+                    //imageView.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

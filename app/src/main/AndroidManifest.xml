@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".StaffMembers"
+            android:exported="false" />
+        <activity
             android:name=".domesticstaff.AllStaffList"
             android:exported="false" />
         <activity
@@ -103,8 +106,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
     </application>
 
 </manifest>
