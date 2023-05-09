@@ -125,9 +125,11 @@ public class DashBoard extends AppCompatActivity {
     }
     public void checkUserExistance(){
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("email"))
+        if(sp.contains("email")){
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+        //startActivity(new Intent(getApplicationContext(),DashBoard.class));
             //tv.setText(sp.getString("email",""));
+            }
         else
             startActivity(new Intent(getApplicationContext(),Login.class));
     }

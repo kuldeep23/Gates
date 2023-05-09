@@ -76,7 +76,6 @@ public class Login extends AppCompatActivity {
                     editor.putString("password",t2.getText().toString());
                     editor.commit();
                     editor.apply();
-
                     startActivity(new Intent(getApplicationContext(), DashBoard.class));
                     finish();
                 }

@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.gates.R;
+import com.example.gates.domesticstaff.StaffMembers;
 import com.example.gates.domesticstaff.model.AllStaffModel;
 
 
@@ -48,11 +49,22 @@ public class AffStaffListAdapter extends RecyclerView.Adapter<AffStaffListAdapte
     public void onBindViewHolder(@NonNull AffStaffListAdapter.myViewHolder holder, int position) {
 
         final AllStaffModel temp = data.get(position);
+        String staff_name = temp.getStaff_name();
         holder.staffname.setText(data.get(position).getStaff_name());
         Glide.with(holder.staffimage.getContext()).load(data.get(position).getStaff_icon()).into(holder.staffimage);
         //Animation
         holder.cardView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.anim_four));
-     /*       holder.call.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), StaffMembers.class);
+                intent.putExtra("staff-name",staff_name );
+                view.getContext().startActivity(intent);
+            }
+        });
+
+
+        /*       holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String phone_number = temp.getVisitor_mobile();
