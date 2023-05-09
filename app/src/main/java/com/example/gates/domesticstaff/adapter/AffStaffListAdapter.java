@@ -83,6 +83,7 @@ public class AffStaffListAdapter extends RecyclerView.Adapter<AffStaffListAdapte
             staffimage = itemView.findViewById(R.id.staff_list_icon);
             staffname = itemView.findViewById(R.id.staff_type);
             cardView = itemView.findViewById(R.id.eachCardView);
+
         }
     }
 }
