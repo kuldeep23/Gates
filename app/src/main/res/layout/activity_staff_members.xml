@@ -5,45 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".domesticstaff.StaffMembers">
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/shimmer">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include layout="@layout/staffmembershimmer"></include>
-            <include layout="@layout/staffmembershimmer"></include>
-            <include layout="@layout/staffmembershimmer"></include>
-            <include layout="@layout/staffmembershimmer"></include>
-
-        </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recview"
-        android:visibility="gone"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:id="@+id/recview"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:id="@+id/img"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/norecord"
-        android:visibility="visible"></ImageView>
+        android:src="@drawable/gatesupdates"></ImageView>
 
-
-
-    </LinearLayout>
 </FrameLayout>
