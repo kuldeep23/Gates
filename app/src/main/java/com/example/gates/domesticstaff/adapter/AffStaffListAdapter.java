@@ -33,6 +33,7 @@ import retrofit2.Response;
 public class AffStaffListAdapter extends RecyclerView.Adapter<AffStaffListAdapter.myViewHolder>
 {
     List<AllStaffModel> data;
+    int itemno;
 
     public AffStaffListAdapter(List<AllStaffModel> data) {
         this.data = data;
@@ -51,6 +52,7 @@ public class AffStaffListAdapter extends RecyclerView.Adapter<AffStaffListAdapte
         final AllStaffModel temp = data.get(position);
         String staff_name = temp.getStaff_name();
         holder.staffname.setText(data.get(position).getStaff_name());
+        holder.staffno.setText(String.valueOf(data.size()));
         Glide.with(holder.staffimage.getContext()).load(data.get(position).getStaff_icon()).into(holder.staffimage);
         //Animation
         holder.cardView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.anim_four));
@@ -80,19 +82,23 @@ public class AffStaffListAdapter extends RecyclerView.Adapter<AffStaffListAdapte
 
     @Override
     public int getItemCount() {
+        itemno = data.size();
+
         return data.size();
+
     }
 
     class myViewHolder extends RecyclerView.ViewHolder
     {
         private ImageView staffimage;
-        private TextView staffname;
+        private TextView staffname, staffno;
         private CardView cardView;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             staffimage = itemView.findViewById(R.id.staff_list_icon);
             staffname = itemView.findViewById(R.id.staff_type);
             cardView = itemView.findViewById(R.id.eachCardView);
+            staffno =itemView.findViewById(R.id.staff_no);
         }
     }
 }

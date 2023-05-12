@@ -2,17 +2,18 @@ package com.example.gates.domesticstaff.model;
 
 public class AllStaffModel {
 
-    String uid, soc_code, staff_name, staff_icon, staff_is_active;
+    String uid, soc_code, staff_name, staff_icon, staff_is_active,staff_no;
 
     public AllStaffModel() {
     }
 
-    public AllStaffModel(String uid, String soc_code, String staff_name, String staff_icon, String staff_is_active) {
+    public AllStaffModel(String uid, String soc_code, String staff_name, String staff_icon, String staff_is_active, String staff_no) {
         this.uid = uid;
         this.soc_code = soc_code;
         this.staff_name = staff_name;
         this.staff_icon = staff_icon;
         this.staff_is_active = staff_is_active;
+        this.staff_no = staff_no;
     }
 
     public String getUid() {
@@ -53,5 +54,13 @@ public class AllStaffModel {
 
     public void setStaff_is_active(String staff_is_active) {
         this.staff_is_active = staff_is_active;
+    }
+
+    public String getStaff_no() {
+        return staff_no;
+    }
+
+    public void setStaff_no(String staff_no) {
+        this.staff_no = staff_no;
     }
 }

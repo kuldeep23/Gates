@@ -12,11 +12,44 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:padding="10dp">
+        <ImageView
+            android:id="@+id/righticon"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/baseline_chevron_right_24"
+            android:layout_alignParentRight="true"
+            />
 
         <ImageView
+            android:id="@+id/staff_list_icon"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@color/teal_700" />
+
+        <TextView
+            android:id="@+id/staff_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textColor="#AEAEAE"
+            android:layout_toRightOf="@id/staff_list_icon"
+            android:text="Maid" />
+
+        <TextView
+            android:id="@+id/staff_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#AEAEAE"
+            android:textStyle="bold"
+            android:layout_toLeftOf="@+id/righticon"
+            android:text="Number" />
+       <!-- <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@color/teal_700"
@@ -35,6 +68,16 @@
             android:textColor="#000"
             android:id="@+id/staff_type"/>
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@color/teal_700"
+            android:id="@+id/icon"
+            android:layout_toRightOf="@+id/staff_type"
+            android:alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitEnd"/>
+-->
 
 
     </RelativeLayout>
